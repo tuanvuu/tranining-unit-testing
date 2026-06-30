@@ -1,11 +1,6 @@
 package com.training.unittest.ch3;
 
-/**
- * DEMO 3 — Production code cho phần "Quy tắc Vàng Act block".
- *
- * Version ban đầu (TRƯỚC refactor): lộ 3 bước nội bộ ra ngoài.
- * Sau khi thêm finalizeOrder(), Act block trong test co về 1 dòng.
- */
+
 public class Order {
 
     private final double baseAmount;

@@ -13,28 +13,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-/**
- * DEMO 2 — London School: Test gắn vào tên method → VỠ sau refactor (Ch2)
- *
- * Mục tiêu demo:
- *   Chứng minh "Structural Coupling" — London test verify() gắn vào
- *   tên method của dependency. Khi tên method thay đổi (dù behavior
- *   giống hệt), test ĐỎ → False Positive.
- *
- * ========== KỊCH BẢN TRÌNH BÀY ==========
- *
- * Bước 1: Đổi tên interface method về "updateUserName" trong UserRepository.java,
- *         FakeUserRepository.java, UserProfileService.java (undo rename).
- *         → verify(mockRepo).updateUserName(1L, "Alice") → TEST XANH ✓
- *
- * Bước 2: Rename lại thành "saveUserName" (refactor đơn giản, không đổi logic).
- *         → verify(mockRepo).updateUserName(1L, "Alice") → TEST ĐỎ ✗
- *         Lỗi: "Wanted but not invoked: userRepository.updateUserName(1, "Alice")"
- *         Nhưng PRODUCTION CODE VẪN ĐÚNG! → đây là False Positive.
- *
- * Hiện tại file đã ở trạng thái SAU rename (saveUserName),
- * nên test này sẽ ĐỎ ngay khi chạy — đúng theo kịch bản demo Bước 2.
- */
+
 @ExtendWith(MockitoExtension.class)
 class Demo2_LondonStyleTest {
 
@@ -53,10 +32,6 @@ class Demo2_LondonStyleTest {
         // Act
         service.updateName(userId, newName);
 
-        // Assert — London style: verify interaction (tên method)
-        // ⚠️  DEMO: dòng này gắn chặt vào tên "updateUserName"
-        //     Khi presenter đổi tên method → saveUserName trong interface,
-        //     dòng này sẽ COMPILE ERROR ngay — dù production code vẫn đúng.
         verify(mockRepo).updateUserName(userId, newName);
     }
 }

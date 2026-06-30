@@ -5,12 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-/**
- * DEMO 2 — Classical School dùng Fake (in-memory) thay vì Mock.
- *
- * FakeUserRepository là Private Dependency: thuần Java, không I/O,
- * không chia sẻ state với test khác → an toàn để dùng real object.
- */
+
 public class FakeUserRepository implements UserRepository {
 
     private final Map<Long, User> store = new HashMap<>();

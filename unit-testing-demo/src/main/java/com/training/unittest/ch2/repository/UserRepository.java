@@ -9,7 +9,5 @@ public interface UserRepository {
 
     void saveUserName(long id, String name);
 
-    // Tên cũ — giữ lại để London test compile được, nhưng production code
-    // đã chuyển sang gọi saveUserName() → London verify() sẽ FAIL lúc runtime
     void updateUserName(long id, String name);
 }
