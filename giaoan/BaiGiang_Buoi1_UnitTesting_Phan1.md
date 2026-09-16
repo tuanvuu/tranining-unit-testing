@@ -9,10 +9,14 @@
 
 | | |
 |---|---|
-| **Thời gian** | 14:00 – 16:45 |
-| **Tổng thời lượng** | 165 phút |
+| **Giảng viên** | Vũ |
+| **Hình thức** | Online qua MS Teams (có demo trực tiếp qua chia sẻ màn hình) |
+| **Thời gian** | 14:00 – 17:12 |
+| **Tổng thời lượng** | ~192 phút (đã bao gồm Chương 4-lõi chuyển từ Buổi 2 sang) |
 | **Đối tượng** | Java Developer, Tech Lead, QA Engineer |
-| **Công cụ cần mở sẵn** | IDE (IntelliJ), Maven project mẫu, slide, JaCoCo |
+| **Công cụ cần mở sẵn** | MS Teams (chia sẻ màn hình + chat), IDE (IntelliJ), Maven project mẫu, slide, JaCoCo |
+
+> ⚠️ **Ghi chú về thời lượng:** Bản kế hoạch v2 (`Detailed_Training_Plan_UnitTesting_v2.md`) nhắm mục tiêu Buổi 1 ở mức ~168 phút, với giả định Chương 1 được rút gọn còn ~30 phút và Chương 2 rút gọn còn ~38 phút. Script hiện tại **chưa cắt nội dung** Chương 1–2 (vẫn giữ đủ 35' và 45' như bản gốc để không đánh mất chất lượng sư phạm), nên tổng thời lượng thực tế đang là ~192 phút. Nếu cần về đúng ~168 phút, cần một đợt rút gọn riêng cho Chương 1–2 — xem mục cuối file.
 
 ---
 
@@ -21,13 +25,13 @@
 
 ---
 
-`[Giảng viên bật slide chào mừng. Nhạc nền nhẹ nếu có. Quan sát học viên đang vào lớp/kết nối online.]`
+`[Vũ bật slide chào mừng trên MS Teams, bật sẵn chế độ chia sẻ màn hình. Nhạc nền nhẹ nếu có. Quan sát học viên đang lần lượt vào Teams meeting qua khung Participants.]`
 
 **[Khi thấy khoảng 80% học viên đã vào]**
 
 ---
 
-"Xin chào mọi người! **Chào mừng các bạn đến với buổi training Unit Testing hôm nay.** Mình là [tên giảng viên] — mình sẽ là người đồng hành với các bạn trong cả hai buổi hôm nay và buổi tiếp theo.
+"Xin chào mọi người! **Chào mừng các bạn đến với buổi training Unit Testing hôm nay.** Mình là Vũ — mình sẽ là người đồng hành với các bạn trong cả hai buổi hôm nay và buổi tiếp theo.
 
 Trong khi chờ mọi người ổn định chỗ, mình có một câu hỏi nhỏ — **không cần trả lời to, chỉ cần suy nghĩ trong đầu thôi nhé:**
 
@@ -42,7 +46,7 @@ Trong khi chờ mọi người ổn định chỗ, mình có một câu hỏi nh
 ---
 
 "Một vài lưu ý nhanh trước khi mình bắt đầu:
-- Nếu có câu hỏi trong lúc mình giảng, **cứ raise hand hoặc gõ vào chat** — mình sẽ dừng lại trả lời.
+- Nếu có câu hỏi trong lúc mình giảng, **cứ bấm nút Raise Hand trên Teams hoặc gõ thẳng vào ô chat** — mình sẽ dừng lại trả lời ngay.
 - Buổi hôm nay mình sẽ có **một số phần demo** — mình sẽ chiếu thẳng IDE và walk through code thực tế, các bạn theo dõi cùng nhé.
 - Cuối buổi, mình sẽ có **bài post-test ngắn** — 15 câu trắc nghiệm, khoảng 15 phút, để mỗi người tự kiểm tra xem mình vừa nắm được gì."
 
@@ -59,11 +63,11 @@ Trong khi chờ mọi người ổn định chỗ, mình có một câu hỏi nh
 
 "Được rồi, hãy để mình kể cho các bạn nghe về **câu chuyện sẽ diễn ra hôm nay.**
 
-Hôm nay là **Buổi 1 — Phần 1.** Chúng ta sẽ đi qua **3 chương cốt lõi**, và mình muốn các bạn nhớ 3 từ khóa này:
+Hôm nay là **Buổi 1 — Phần 1.** Chúng ta sẽ đi qua **bốn chương cốt lõi**, và mình muốn các bạn nhớ bốn từ khóa này:
 
-> **Tầm nhìn — Trường phái — Code sạch**
+> **Tầm nhìn — Trường phái — Code sạch — Thước đo**
 
-Đây là 3 thứ mình muốn các bạn mang về nhà sau buổi hôm nay.
+Đây là bốn thứ mình muốn các bạn mang về nhà sau buổi hôm nay.
 
 **Tầm nhìn:** Chương 1 sẽ trả lời câu hỏi — *'Unit testing thực sự để làm gì?'* Không phải để đạt 80% coverage. Không phải để làm hài lòng PM. Mà là để làm điều gì đó **lớn hơn nhiều**.
 
@@ -71,7 +75,7 @@ Hôm nay là **Buổi 1 — Phần 1.** Chúng ta sẽ đi qua **3 chương cố
 
 **Code sạch:** Chương 3 là phần thực chiến nhất — các bạn sẽ thấy cách viết một test *đẹp*, có cấu trúc rõ ràng, tên test đọc như câu chuyện, không có if-else lởm khởm bên trong.
 
-(...) Và sau giải lao, chúng ta sẽ tổng kết và có phần Q&A để mình cùng các bạn xử lý những case khó từ project thực tế.
+**Thước đo:** Và sau một hoạt động thực hành mang tên 'Phòng Khám Test', Chương 4 sẽ trao cho các bạn một framework gồm bốn trụ cột để định lượng chất lượng của bất kỳ bài test nào — thay vì chỉ đánh giá bằng cảm tính như từ trước đến giờ.
 
 `[Trỏ vào slide timeline]`
 
@@ -80,9 +84,11 @@ Lịch như thế này:
 - 14:55 – Chương 2 (45 phút)
 - 15:40 – Giải lao (15 phút)
 - 15:55 – Chương 3 (35 phút)
-- 16:30 – Tổng kết & Q&A (15 phút)
+- 16:30 – Hoạt động 'Phòng Khám Test' (13 phút)
+- 16:43 – Chương 4: Bốn Trụ Cột (27 phút)
+- 17:10 – Tổng kết & Post-test (2 phút)
 
-Hỏi nhanh: **Ai trong phòng đã từng viết unit test rồi?** `[Giơ tay hoặc gõ chat]` (...) Tốt. **Ai chưa bao giờ viết?** (...) Cũng ổn — buổi hôm nay phù hợp cho cả hai nhóm, vì mình sẽ xây từ nền tảng tư duy, không phải từ syntax.
+Hỏi nhanh: **Ai trong lớp mình hôm nay đã từng viết unit test rồi?** `[Bấm Raise Hand trên Teams hoặc gõ vào chat]` (...) Tốt. **Ai chưa bao giờ viết?** (...) Cũng ổn — buổi hôm nay phù hợp cho cả hai nhóm, vì mình sẽ xây từ nền tảng tư duy, không phải từ syntax.
 
 Được rồi — **bắt đầu thôi!**"
 
@@ -128,6 +134,20 @@ Vì họ có **test nhiều** nhưng **test sai.**
 Đường màu đỏ — không có test — sụp nhanh nhất.
 Đường màu vàng — có test nhưng test kém chất lượng — sụp chậm hơn, nhưng vẫn sụp.
 Đường màu xanh — **test đúng cách** — dự án tăng trưởng bền vững.
+
+`[Dừng một nhịp, kể chậm rãi hơn]`
+
+Mình muốn kể cho các bạn nghe một câu chuyện cụ thể hơn, không phải lý thuyết suông.
+
+Mình từng làm việc cùng một team ở một dự án quản lý kho vận. Sáu tháng đầu, mọi thứ đúng y như đường màu đỏ mình vừa vẽ trên slide — tốc độ cực nhanh, mỗi sprint ra được tám đến mười tính năng, developer commit thẳng lên `main` không cần review kỹ càng vì 'code đơn giản mà, có gì phức tạp đâu'.
+
+Đến tháng thứ tám, mọi thứ bắt đầu chậm lại rõ rệt. Một feature nhỏ như 'thêm trường ghi chú vào đơn hàng' lại kéo theo việc phải sửa ở bốn module khác nhau, vì logic bị copy-paste rải rác khắp nơi trong codebase. Sprint velocity từ mười tính năng tụt xuống chỉ còn bốn.
+
+Và đến năm thứ hai, cả đội gần như tê liệt trước module tính giá vận chuyển — một class hơn hai nghìn dòng code, không một ai trong team hiểu hết logic bên trong, và dĩ nhiên, không có lấy một bài test nào bảo vệ nó. Mỗi lần cần sửa, cả team phải họp bàn cả buổi, rồi vẫn run tay khi deploy, vì chẳng ai dám chắc điều gì sẽ xảy ra sau đó.
+
+`[Dừng]`
+
+Đó chính là cái giá thực sự của việc không đầu tư đúng cách vào unit testing ngay từ đầu. Không phải là 'thiếu test thì thiếu an toàn' một cách chung chung — mà là những con số rất cụ thể: sprint velocity giảm dần, ước lượng công việc ngày càng sai lệch, và cuối cùng, cả team đánh mất khả năng tự tin thay đổi chính sản phẩm của mình.
 
 Và đây chính là **mục tiêu thật sự của unit testing:** **Không phải coverage. Không phải số lượng test. Mà là duy trì khả năng phát triển bền vững của phần mềm theo thời gian.**
 
@@ -252,7 +272,23 @@ Branch coverage: 100%. Nhưng `Integer.parseInt()` có **hàng chục nhánh ẩ
 
 Và cái **thực sự nguy hiểm** là khi management đặt target: *'Team phải đạt 80% coverage, không được merge nếu dưới 80%'*. Lúc đó developer sẽ viết test **để đạt số**, không viết test **để bảo vệ code**. Và những test đó thường là assertion-free, hoặc test những thứ hiển nhiên đến mức vô nghĩa.
 
-Mình đã từng chứng kiến điều này. Và tác giả cuốn sách cũng kể một câu chuyện tương tự. Kết quả: **100% coverage, vẫn ship bug lên production.**"
+Mình đã từng chứng kiến điều này tận mắt, và tác giả cuốn sách — Vladimir Khorikov — cũng kể lại một câu chuyện rất giống như vậy, mà mình nghĩ đáng để kể chi tiết cho các bạn nghe.
+
+`[Dừng, chuyển giọng kể chuyện]`
+
+Nhiều năm trước, ông làm việc tại một dự án mà ban quản lý áp đặt một yêu cầu cứng nhắc: **mọi dự án đang phát triển đều phải đạt 100% code coverage.** Đây là thời điểm mà unit testing còn chưa phổ biến như bây giờ, và sáng kiến này thực ra xuất phát từ một ý định rất tốt đẹp.
+
+Chuyện là, một nhóm developer trong công ty đi tham dự một hội thảo, nơi rất nhiều buổi nói chuyện xoay quanh chủ đề unit testing. Họ trở về với đầy nhiệt huyết, thuyết phục được ban lãnh đạo ủng hộ, và thế là một làn sóng cải cách bắt đầu: các buổi thuyết trình nội bộ được tổ chức, công cụ mới được cài đặt, và quan trọng nhất — một quy định áp dụng cho toàn công ty ra đời: **tất cả các team phát triển phải tập trung viết test cho đến khi đạt mốc 100% code coverage.** Sau khi đạt được mốc đó, bất kỳ commit nào làm giảm con số coverage cũng sẽ bị build system tự động từ chối.
+
+`[Dừng một nhịp]`
+
+Các bạn đoán xem chuyện gì xảy ra tiếp theo?
+
+Bị dồn vào chân tường bởi giới hạn khắc nghiệt này, các developer bắt đầu tìm cách 'lách luật'. Và nhiều người trong số họ đi đến cùng một phát hiện: **nếu bọc toàn bộ test trong một khối try/catch và không hề viết bất kỳ assertion nào bên trong, những test đó chắc chắn sẽ luôn pass.** Người ta bắt đầu viết test một cách vô thức, chỉ để đạt cho được con số 100% bắt buộc. Và tất nhiên, những test đó không hề mang lại giá trị gì cho dự án — tệ hơn, chúng còn gây hại, vì thời gian và công sức đáng lẽ dùng để phát triển tính năng lại bị đổ vào việc viết ra hàng loạt test vô nghĩa, cộng thêm chi phí bảo trì chúng về sau.
+
+Cuối cùng, yêu cầu 100% được hạ xuống 90%, rồi 80%, và sau một thời gian, nó bị rút lại hoàn toàn — theo đúng nghĩa đen là một điều **may mắn** cho cả dự án.
+
+Câu chuyện này, và câu chuyện các bạn vừa thấy ở phần Demo, đều đi đến cùng một kết luận: **100% coverage, vẫn hoàn toàn có thể ship bug lên production.**"
 
 ---
 
@@ -413,6 +449,12 @@ Không phải tất cả code đều cần test như nhau. Getter/setter, constr
 
 `[Ví dụ]` Trong một hệ thống banking: class `Transaction`, `Account`, `LoanCalculator` — đó là vùng vàng cần test kỹ. Còn `UserDtoMapper` hay `ApiResponseBuilder` — test nhẹ hoặc thậm chí bỏ qua cũng được.
 
+`[Ví dụ thứ hai, từ domain khác]`
+
+Hay lấy một ví dụ gần với thương mại điện tử hơn: `PricingEngine` tính giá sau khuyến mãi, `InventoryReservationService` giữ chỗ hàng tồn kho, `RefundCalculator` tính tiền hoàn — đó là vùng vàng cần đầu tư test kỹ lưỡng. Còn `ProductThumbnailResizer` hay `EmailTemplateRenderer` — dù cũng là code thật, nhưng bug ở đó hiếm khi gây hậu quả nghiêm trọng cho business, nên chỉ cần đầu tư test ở mức vừa phải là đủ.
+
+Mình từng thấy một team làm ngược lại hoàn toàn điều này: họ có một bộ test rất dày cho tầng DTO và mapping — hàng trăm test chỉ để kiểm tra field này có map đúng sang field kia hay không — trong khi `PricingEngine`, nơi tính toán giá bán thực tế cho hàng triệu đơn hàng mỗi tháng, gần như không có test nào bảo vệ. Kết quả là gì? Một bug tính sai giá khuyến mãi đã âm thầm chạy trên production suốt hai tuần trước khi bị phát hiện — trong khi cả team vẫn đang rất tự hào vì coverage tổng thể của dự án đạt tới 85%.
+
 **Tiêu chí 3: Tối đa giá trị với chi phí bảo trì tối thiểu.**
 
 Đây là tiêu chí **khó nhất**, và là chủ đề trọng tâm của toàn bộ cuốn sách.
@@ -424,7 +466,7 @@ Một test tốt không chỉ pass — nó phải:
 
 `[Chuyển sang slide: "Tổng Kết Chương 1 — Sustainable Growth"]`
 
-Tóm lại, **mục tiêu thật của unit testing** là:
+Tóm lại, nếu phải gói gọn lại **mục tiêu thật của unit testing** trong một câu, đó sẽ là câu này:
 
 > *Duy trì khả năng phát triển bền vững của phần mềm. Không phải coverage, không phải số lượng test — mà là chất lượng của từng test và sự tập trung vào đúng phần cần bảo vệ.*
 
@@ -640,17 +682,29 @@ Trước khi xem code Classical, cần hiểu tại sao Classical chỉ mock m�
 
 ---
 
-"Classical School phân biệt **3 loại dependency** và chỉ mock đúng loại cần thiết.
+"Classical School phân biệt rất rõ ràng **ba loại dependency**, và với mỗi loại, trường phái này đưa ra một quyết định dứt khoát về việc có nên mock hay không. Mình sẽ đi qua từng loại một để các bạn thấy rõ logic đằng sau.
 
-**Shared Dependency** — nhiều test cùng dùng, gây ảnh hưởng chéo: static field, Singleton, database instance dùng chung. → Phải mock hoặc reset.
+Loại đầu tiên là **Shared Dependency** — những phụ thuộc được nhiều bài test cùng sử dụng, và chính vì dùng chung nên chúng có nguy cơ gây ảnh hưởng chéo lẫn nhau. Một static field, một Singleton, hay một database instance được tái sử dụng giữa nhiều lần chạy test — đó đều là ví dụ điển hình. Với loại dependency này, câu trả lời luôn là: **phải mock hoặc reset trạng thái**, nếu không các bài test sẽ âm thầm ảnh hưởng đến kết quả của nhau.
 
-**Out-of-Process Dependency** — chạy bên ngoài JVM: database thật, message queue, SMTP, REST API bên thứ ba. Unit test gọi những thứ này sẽ chậm, không stable, gây side effect. → Luôn mock trong unit test.
+Loại thứ hai là **Out-of-Process Dependency** — những thứ chạy hẳn bên ngoài JVM của ứng dụng: một database thật, một message queue, một SMTP server, hay một REST API của bên thứ ba. Khi unit test gọi trực tiếp vào những thành phần này, nó sẽ chậm đi rõ rệt, mất tính ổn định, và có thể tạo ra những side effect không mong muốn. Với loại này, quy tắc luôn nhất quán: **luôn luôn mock trong unit test.**
 
-**Private Dependency** — chỉ một class dùng: value object, collection nội bộ, helper thuần logic. Mỗi test tạo instance riêng, không chia sẻ state giữa các test. → Dùng real object, không cần mock.
+Và loại thứ ba là **Private Dependency** — những phụ thuộc chỉ được dùng riêng bởi một class, như một value object, một collection nội bộ, hay một helper thuần logic không hề đụng đến I/O. Mỗi bài test hoàn toàn có thể tự tạo ra một instance riêng của chúng mà không lo chia sẻ trạng thái với bất kỳ test nào khác. Với loại này, hãy cứ mạnh dạn **dùng real object** — hoàn toàn không cần mock.
 
 `[Trỏ vào bảng phân loại trên slide]`
 
-Bảng này là quy tắc thực hành — nhìn vào bất kỳ dependency nào, xác định loại, biết ngay cần mock hay không."
+Các bạn có thể coi bảng này như một quy tắc thực hành mang theo bên mình: bất cứ khi nào phân vân không biết có nên mock một dependency hay không, chỉ cần xác định xem nó thuộc loại nào trong ba loại vừa rồi — câu trả lời sẽ hiện ra ngay lập tức, không cần đoán.
+
+`[Dừng, tương tác nhanh với lớp trước khi sang slide tiếp theo]`
+
+Để chắc chắn các bạn đã nắm vững ba loại này, mình đưa ra ba ví dụ nhanh — hãy tự phân loại trong đầu trước khi mình đọc đáp án.
+
+Thứ nhất: một `PaymentGatewayClient` gọi ra API thanh toán của Momo hoặc VNPay. `[Chờ 3 giây]` Đây là **Out-of-Process Dependency** — nó chạy hẳn bên ngoài JVM của bạn, nên luôn phải mock trong unit test.
+
+Thứ hai: một trường `private static int totalOrdersProcessed` được nhiều class cùng đọc và ghi trong quá trình chạy test. `[Chờ 3 giây]` Đây là **Shared Dependency** — một static field cổ điển, cần được mock hoặc reset giữa các lần chạy để tránh test này ảnh hưởng đến test khác.
+
+Và thứ ba: một class `Money` chỉ chứa số tiền và đơn vị tiền tệ, dùng để tính toán nội bộ, hoàn toàn không có I/O. `[Chờ 3 giây]` Đây là **Private Dependency** — hoàn toàn an toàn để dùng real object, không cần bận tâm đến việc mock.
+
+Ba tình huống này chính là những gì các bạn sẽ gặp lại liên tục trong công việc hằng ngày — hãy tập phản xạ phân loại nhanh như vừa rồi."
 
 ---
 
@@ -682,14 +736,19 @@ Classical không quan tâm bạn gọi method tên gì bên trong. Chỉ hỏi: 
 
 ---
 
-"Slide này tóm tắt toàn bộ sự khác biệt. `[Đọc qua từng dòng bảng]`
+"Slide này tóm gọn lại toàn bộ sự khác biệt giữa hai trường phái chúng ta vừa đi qua, và mình muốn đọc chậm rãi từng dòng để các bạn khắc sâu vào đầu trước khi sang phần tiếp theo.
 
-- **Định nghĩa Unit:** London = 1 class / Classical = 1 hành vi
-- **Sự cô lập:** London cô lập từng class / Classical cô lập các test với nhau
-- **Dùng mock khi nào:** London mock mọi dependency bên ngoài class / Classical chỉ mock Shared và Out-of-process
-- **Integration test là gì:** London: test nhiều hơn 1 class / Classical: chạm vào DB thật mới là integration
+`[Đọc qua từng dòng bảng]`
 
-Dòng cuối giải thích tại sao bộ test Classical thường bị London gọi là 'integration test' — dù thực ra chúng chỉ đang test logic nội bộ với real objects, không hề chạm đến database hay API bên ngoài."
+Về **định nghĩa của từ 'Unit'**: London coi một unit là đúng một class duy nhất; còn Classical coi một unit là một hành vi nghiệp vụ, và hành vi đó hoàn toàn có thể trải rộng qua nhiều class cùng phối hợp với nhau.
+
+Về **cách hiểu sự cô lập**: London chọn cô lập từng class khỏi mọi thứ xung quanh nó; Classical thì ngược lại — cô lập các bài test khỏi nhau, chứ không hề cô lập các class khỏi nhau.
+
+Về **thời điểm nên dùng mock**: London mock mọi dependency nằm bên ngoài class đang được test; Classical thì chọn lọc hơn nhiều — chỉ mock đúng hai loại là Shared Dependency và Out-of-Process Dependency.
+
+Và về **định nghĩa của Integration Test**: với London, chỉ cần một bài test chạm vào nhiều hơn một class là đã bị xếp vào integration test; còn với Classical, phải thực sự chạm đến database thật hay một hệ thống bên ngoài thì mới được tính là integration test.
+
+Chính dòng cuối cùng này là lý do vì sao các bạn sẽ thường nghe những người theo trường phái London gọi các bộ test Classical là 'integration test' — dù trên thực tế, chúng chỉ đang kiểm tra logic nội bộ bằng các real object nằm gọn trong bộ nhớ, hoàn toàn không hề chạm đến database hay bất kỳ API bên ngoài nào cả."
 
 ---
 
@@ -711,20 +770,27 @@ Một trường phái test **cách làm**, một trường phái test **kết qu
 
 ---
 
-"Slide này nêu 4 lý do cụ thể:
+"Slide này tổng hợp lại bốn lý do cụ thể vì sao cộng đồng pragmatic — những người coi trọng hiệu quả thực tế trên dự án thật hơn là lý thuyết thuần túy — ngày càng nghiêng hẳn về Classical School. Mình sẽ đi qua từng lý do một.
 
-**Structural Coupling** — test gắn vào tên method → vỡ khi refactor dù logic đúng.
-**False Positive** — code đúng, test vẫn đỏ → mất tin tưởng.
-**Over-specification** — test biết 'cách làm' thay vì 'kết quả'.
-**Large class graph** — phải mock 5–6 dependency không phải vấn đề của testing — đó là dấu hiệu **design kém** cần sửa từ gốc.
+Lý do đầu tiên là **Structural Coupling**: hiện tượng bài test bị gắn chặt vào tên của một method bên trong, đến mức chỉ cần đổi tên method đó thôi — dù logic bên trong không hề thay đổi — test cũng vỡ ngay lập tức.
 
-**Ma trận quyết định:**
-> Test domain logic, business rules → Classical, dùng real object
-> Verify interaction với external system → Mock là đúng
+Lý do thứ hai, và cũng là hệ quả trực tiếp của lý do đầu tiên, là **False Positive**: khi code hoàn toàn đúng nhưng test vẫn báo đỏ. Và như mình đã nói ở phần trước, mỗi lần điều này xảy ra, niềm tin của cả team vào bộ test suite lại hao mòn đi thêm một chút.
 
-Câu hỏi nhanh: `EmailNotifier` — mock hay real? `[Chờ]` → **Mock**, out-of-process. `LoyaltyCalculator` — class tính điểm, không có I/O? `[Chờ]` → **Real object**, private dependency thuần logic.
+Lý do thứ ba là **Over-specification** — khi bài test biết quá nhiều về 'production code đang làm việc như thế nào', thay vì chỉ nên quan tâm đến 'kết quả cuối cùng ra sao'. Nói cách khác, đây là lúc bài test đang xâm phạm vào lãnh địa vốn thuộc về implementation detail.
 
-Bây giờ mình demo trực tiếp."
+Và lý do cuối cùng là vấn đề **Large class graph** — khi một class có tới năm, sáu dependency phải mock hết thì mới test được. Điều quan trọng nhất cần nhớ ở đây là: đây không phải là vấn đề của việc kiểm thử. Đây là dấu hiệu của một **thiết kế kém**, và cách sửa đúng đắn là quay lại chỉnh sửa từ gốc kiến trúc, chứ không phải cố nhồi thêm mock cho bằng được.
+
+`[Ví dụ minh họa]`
+
+Mình từng thấy một class tên `CheckoutService` trong một dự án thực tế cần đến **tám mock** chỉ để test được một luồng đặt hàng đơn giản: `InventoryRepository`, `PricingEngine`, `DiscountService`, `TaxCalculator`, `PaymentGateway`, `ShippingCalculator`, `NotificationService`, và `AuditLogger`. Mỗi lần muốn viết thêm một test case mới, developer phải setup lại gần như toàn bộ tám mock đó — riêng phần Arrange đã dài hơn sáu mươi dòng code. Không ai trong team còn muốn động vào file test đó nữa.
+
+Giải pháp không nằm ở việc tìm cách mock 'khéo léo' hơn. Giải pháp nằm ở việc tách `CheckoutService` thành nhiều class nhỏ hơn, mỗi class chỉ đảm nhận đúng một trách nhiệm — điều mà chúng ta sẽ học kỹ hơn qua Humble Object Pattern ở Buổi 2.
+
+Từ bốn lý do đó, mình đúc kết thành một ma trận quyết định rất đơn giản mà các bạn có thể mang theo áp dụng ngay từ hôm nay: nếu đang test domain logic hay một business rule, hãy đi theo Classical và dùng real object; còn nếu đang cần verify một tương tác với hệ thống bên ngoài, lúc đó dùng mock mới thực sự là lựa chọn đúng.
+
+Để chắc chắn cả lớp đã nắm vững nguyên tắc này, mình hỏi nhanh hai câu. `EmailNotifier` — theo các bạn nên mock hay dùng real object? `[Chờ]` Đúng vậy — **mock**, vì đây là một out-of-process dependency. Còn `LoyaltyCalculator` — một class chỉ làm nhiệm vụ tính điểm, hoàn toàn không có I/O? `[Chờ]` Chính xác — **real object**, vì đây là một private dependency thuần logic, không có lý do gì để mock nó cả.
+
+Bây giờ, để các bạn thấy rõ hơn hậu quả thực tế của sự khác biệt này, mình sẽ demo trực tiếp."
 
 ---
 
@@ -818,21 +884,21 @@ Refactor thoải mái — Classical test không bao giờ cần sửa theo."
 
 ---
 
-"Để kết lại chương 2:
+"Để kết lại chương 2, mình muốn cùng các bạn nhìn lại toàn bộ hành trình chúng ta vừa đi qua trong 45 phút vừa rồi.
 
-**Ba thuộc tính** của unit test đúng nghĩa: nhanh, cô lập, deterministic.
+Chúng ta bắt đầu từ **ba thuộc tính** làm nên một unit test đúng nghĩa: phải nhanh, phải chạy hoàn toàn cô lập, và phải cho ra kết quả deterministic — nghĩa là chạy bao nhiêu lần cũng chỉ cho đúng một kết quả duy nhất.
 
-**Hai trường phái** có câu trả lời khác nhau cho từ 'cô lập': London cô lập từng class, Classical cô lập từng test.
+Từ đó, chúng ta phát hiện ra rằng **hai trường phái lớn nhất trong lịch sử unit testing** thực chất chỉ bất đồng với nhau ở đúng một điểm: cách định nghĩa từ 'cô lập'. London School chọn cô lập từng class khỏi mọi thứ xung quanh nó; Classical School chọn cô lập từng bài test khỏi nhau.
 
-**Ba loại dependency** và quy tắc mock: Shared và Out-of-process → mock; Private → real object.
+Chính sự khác biệt tưởng chừng nhỏ bé đó lại dẫn tới cách hai trường phái đối xử hoàn toàn khác nhau với **ba loại dependency**: cả hai đều đồng ý phải mock Shared Dependency và Out-of-Process Dependency, nhưng với Private Dependency, Classical School chọn dùng real object trong khi London vẫn mock luôn cả những thứ đó.
 
-**Classical School** bảo vệ behavior, không phải implementation — nên refactor an toàn hơn, ít false positive hơn.
+Và cuối cùng, chính lựa chọn này khiến **Classical School bảo vệ hành vi (behavior) của hệ thống, thay vì bảo vệ cách hệ thống được cài đặt (implementation)** — đây chính là lý do vì sao những bài test theo Classical School chịu đựng refactor tốt hơn hẳn, và sinh ra ít false positive hơn hẳn so với London.
 
 `[Dừng một nhịp]`
 
-Rule of thumb mang theo: *Test domain logic với real objects. Test external I/O với mocks.*
+Nếu chỉ được mang về nhà đúng một câu sau chương này, hãy mang câu này: **hãy test domain logic bằng real object, và chỉ dùng mock khi thực sự cần verify một I/O ra bên ngoài.**
 
-Câu hỏi gì về chương 2 không?"
+Bây giờ, các bạn có câu hỏi gì về chương 2 không?"
 
 `[Chờ học viên hỏi — gợi ý nếu im lặng quá 30 giây: "Bạn nào đang dùng Mockito trong dự án — thử nhìn lại test mình đang là London hay Classical?"]`
 
@@ -904,7 +970,7 @@ Câu hỏi gì về chương 2 không?"
 
 `[Slide: "GIẢI LAO — Quay lại lúc 15:55"]`
 
-**[Giảng viên có thể trả lời câu hỏi riêng trong chat hoặc ngoài hành lang]**
+**[Vũ có thể tranh thủ trả lời câu hỏi riêng qua chat Teams trong lúc học viên đang nghỉ giải lao]**
 
 ---
 
@@ -937,15 +1003,17 @@ Slide này có một câu trích dẫn mình rất thích: *'Mỗi test tuyệt 
 
 ---
 
-"**AAA Pattern — Arrange, Act, Assert.** Đây là cấu trúc chuẩn mà mọi unit test tốt đều tuân theo.
+"**AAA Pattern — Arrange, Act, Assert.** Đây là cấu trúc chuẩn mà hầu như mọi unit test tốt trên đời đều tuân theo, và một khi các bạn đã quen mắt với nó, việc đọc bất kỳ bài test nào — kể cả test do người khác viết — cũng sẽ trở nên dễ dàng hơn rất nhiều.
 
-Ba phần, ba vai trò hoàn toàn tách biệt:
+Cấu trúc này gồm ba phần, và mỗi phần đảm nhận đúng một vai trò, hoàn toàn tách biệt với nhau, không được phép lẫn lộn.
 
-**Arrange** — chuẩn bị thế giới: tạo objects, setup mock, chuẩn bị input.
-**Act** — thực thi đúng một hành động cần test.
-**Assert** — kiểm tra kết quả quan sát được.
+Phần **Arrange** đảm nhận việc chuẩn bị thế giới trước khi hành động xảy ra — ở đây bạn tạo ra các object cần thiết, thiết lập mock nếu có, và chuẩn bị sẵn dữ liệu đầu vào.
 
-Ba phần này không được trộn lẫn. Đọc vào là biết ngay đang ở đâu trong câu chuyện. Bây giờ mình sẽ cho xem code thực tế."
+Phần **Act** là nơi bạn thực thi đúng một hành động duy nhất — chính là hành động mà bài test này đang muốn kiểm chứng, không hơn không kém.
+
+Và phần **Assert** là nơi bạn kiểm tra kết quả quan sát được sau khi hành động đó đã xảy ra — kết quả đó có đúng như những gì mình mong đợi hay không.
+
+Điều quan trọng nhất mình muốn các bạn khắc ghi: ba phần này **không bao giờ được phép trộn lẫn vào nhau**. Một khi đã quen với cấu trúc này, chỉ cần liếc qua một bài test, bạn sẽ biết ngay mình đang đứng ở phần nào trong câu chuyện. Bây giờ, để hình dung rõ hơn, mình sẽ cho các bạn xem một đoạn code thực tế."
 
 ---
 
@@ -1027,9 +1095,9 @@ Teardown chỉ cần thiết ở integration test khi test đụng external reso
 
 ---
 
-"AAA cho bạn cấu trúc bên trong. Nhưng developer đọc test lần đầu nhìn vào đâu? Vào **tên method**. Và đây là chỗ mình thấy hầu hết mọi người đang làm sai.
+"AAA Pattern vừa rồi cho bạn cấu trúc bên trong của một bài test. Nhưng hãy thử nghĩ lại xem — khi một developer mở test suite ra lần đầu tiên, thứ đầu tiên đập vào mắt họ không phải là nội dung bên trong, mà chính là **tên của method**. Và đây lại chính là chỗ mình thấy tuyệt đại đa số mọi người đang làm sai.
 
-Bây giờ mình hỏi các bạn: **Test tên thế này có ổn không?**
+Bây giờ mình muốn hỏi thật lòng các bạn một câu: **các bạn thấy cái tên test này có ổn không?**
 
 ```java
 @Test
@@ -1038,24 +1106,25 @@ void testCalculate_input100_returnCorrect() {}
 
 `[Dừng, để học viên nhận xét]`
 
-Tên này có vấn đề gì?
-- `testCalculate` — OK, biết đang test method gì
-- `input100` — OK nhưng cứng nhắc, gắn với dữ liệu
-- `returnCorrect` — **không có giá trị** — 'correct' là gì? Correct theo cách nào?
+Hãy để mình mổ xẻ từng mảnh của cái tên này cùng các bạn. `testCalculate` thì tạm ổn — ít nhất nó cho biết đang test method nào. `input100` cũng tạm chấp nhận được, nhưng nó quá cứng nhắc vì gắn chết vào một con số dữ liệu cụ thể — chỉ cần đổi bộ dữ liệu test, cái tên lại trở nên vô nghĩa. Còn `returnCorrect` thì **hoàn toàn không mang lại giá trị gì cả** — 'correct' ở đây nghĩa là gì? Đúng theo tiêu chí nào? Đọc xong cái tên, bạn vẫn chẳng hề biết bài test này đang bảo vệ business rule nào.
 
-Và **vấn đề lớn nhất** của naming kiểu `[MethodName]_[State]_[ExpectedBehavior]` là: **nó gắn chặt vào tên method.** Ngày mai bạn rename `calculate` thành `compute` — tên test ngay lập tức mất nghĩa.
+Và đây mới chính là **vấn đề lớn nhất** của kiểu đặt tên `[MethodName]_[State]_[ExpectedBehavior]` này: nó **gắn chặt số phận của tên test vào tên method bên production**. Chỉ cần ngày mai bạn rename `calculate` thành `compute` thôi — dù bản thân hành vi được kiểm tra không hề thay đổi — cái tên test này sẽ lập tức mất hết ý nghĩa.
 
 ---
 
-**Naming hiện đại: Viết tên test như một business fact — một câu sự thật về hệ thống.**
+Vậy cách đặt tên hiện đại — cách mà mình muốn các bạn bắt đầu áp dụng ngay từ hôm nay — là gì? Nguyên tắc rất đơn giản: **hãy viết tên test như thể bạn đang phát biểu một sự thật về nghiệp vụ (business fact)**, chứ không phải như đang mô tả một đoạn code.
 
-Nguyên tắc:
-1. Không dùng tên method/class trong tên test
-2. Dùng ngôn ngữ nghiệp vụ, không dùng jargon code
-3. Đọc tên test → hiểu ngay hệ thống đang làm gì
-4. Dùng `snake_case` cho readability (Java cho phép)
+Có bốn điều mình muốn các bạn ghi nhớ. **Thứ nhất**, đừng bao giờ nhét tên của method hay tên của class vào trong tên test — như các bạn vừa thấy, làm vậy sẽ khiến tên test bị phụ thuộc ngược vào implementation. **Thứ hai**, hãy dùng ngôn ngữ nghiệp vụ, tránh hoàn toàn các thuật ngữ kỹ thuật hay jargon lập trình — mục tiêu cuối cùng là để một người không biết code, chẳng hạn như một Product Manager, cũng có thể đọc và hiểu được. **Thứ ba**, một cái tên tốt phải làm được điều này: chỉ cần đọc tên thôi, người đọc đã hiểu ngay hệ thống đang làm gì, không cần mở code ra xem. Và **thứ tư**, hãy dùng `snake_case` thay vì camelCase cho tên test — Java hoàn toàn cho phép điều này, và nó giúp những cái tên dài trở nên dễ đọc hơn hẳn.
 
-Đọc tên test cuối — **bạn có cần mở code ra xem không?** Không. Tên test đã kể toàn bộ câu chuyện.
+Bây giờ hãy quay lại nhìn cái tên test cuối cùng mình vừa cho xem, và tự hỏi bản thân: **bạn có cần mở code ra để hiểu nó đang kiểm tra điều gì không?** Câu trả lời là không. Bản thân cái tên đã kể trọn vẹn câu chuyện rồi.
+
+`[Một ví dụ khác, từ domain khác]`
+
+Hãy thử thêm một ví dụ nữa, lần này từ domain bảo hiểm. Tên cũ: `testValidateClaim_status2_false`. Đọc lên, các bạn có đoán được 'status2' nghĩa là gì không? Chắc chắn là không — đó là một magic number ẩn trong đầu người viết test, và chỉ riêng người đó mới hiểu.
+
+Đặt lại theo business fact: `claim_with_expired_policy_should_be_rejected`. Bây giờ thì rõ ràng — claim bị từ chối vì policy đã hết hạn. Không cần biết 'status2' là số mấy trong enum, không cần mở code, đọc là hiểu ngay lập tức.
+
+Mình từng có một trải nghiệm khá đau đầu vì chính chuyện đặt tên này: một lần debug production issue lúc nửa đêm, mình mở CI log lên và thấy đúng một dòng `FAILED: test3`. Chỉ vậy thôi — `test3`. Mình mất gần hai mươi phút chỉ để tìm ra file chứa nó, mở code ra đọc, mới hiểu được nó đang kiểm tra cái gì. Nếu tên test đó được viết theo business fact ngay từ đầu, có lẽ mình đã tiết kiệm được gần hết hai mươi phút ấy — và ở thời điểm nửa đêm đang debug production, hai mươi phút không phải là con số nhỏ chút nào.
 
 Và **lợi ích bất ngờ:** khi test fail, bạn thấy ngay trong CI log:
 
@@ -1194,17 +1263,17 @@ Chỉ dùng AssertJ khi thực sự cần — assert collection phức tạp, cu
 
 ---
 
-"Slide này gom lại toàn bộ những gì chúng ta đã đi qua hôm nay — 3 tầng tư duy.
+"Slide này gom lại toàn bộ những gì chúng ta đã cùng nhau đi qua từ đầu buổi đến giờ — ba tầng tư duy đã dần được xây dựng lên trong đầu các bạn.
 
-**Tầm nhìn:** Test không phải để chase coverage. Test là đầu tư cho sustainable growth — giúp codebase thay đổi được mà không sợ vỡ.
+Đầu tiên là **Tầm nhìn**: chúng ta đã thấy rằng viết test không phải để chạy theo con số coverage, mà là một khoản đầu tư thực sự cho sự phát triển bền vững của dự án — giúp codebase có thể thay đổi được theo thời gian mà không phải sống trong nỗi sợ hãi mỗi khi refactor.
 
-**Trường phái:** Classical School — mock chỉ khi vượt process boundary. Test behavior, không test implementation.
+Tiếp theo là **Trường phái**: chúng ta đã chọn Classical School làm mặc định — chỉ mock khi tương tác đó thực sự vượt ra ngoài process boundary, và luôn hướng bài test vào việc kiểm tra hành vi (behavior), chứ không phải kiểm tra cách hệ thống được cài đặt bên trong (implementation).
 
-**Code sạch:** Act 1 dòng. Không if/else trong test. Tên test là business fact — đọc là hiểu, không cần mở code.
+Và cuối cùng là **Code sạch**: một bài test tốt luôn có khối Act chỉ đúng một dòng, không bao giờ chứa cấu trúc điều kiện như if hay else, và có một cái tên được viết như một business fact — chỉ cần đọc là hiểu ngay, không cần mở code ra xem.
 
 `[Dừng một nhịp]`
 
-Ba điều này nghe đơn giản — nhưng áp dụng nhất quán trong một team 10 người, trên codebase 2 năm tuổi, thì không đơn giản chút nào. Đó là lý do chúng ta cần học kỹ từng nguyên tắc thay vì chỉ đọc qua.
+Ba điều này nghe qua thì có vẻ đơn giản. Nhưng để áp dụng nhất quán trong một team mười người, trên một codebase đã hai năm tuổi — điều đó lại không hề đơn giản chút nào. Và đó chính là lý do chúng ta cần học kỹ từng nguyên tắc này, chứ không chỉ đọc lướt qua rồi quên.
 
 Bạn nào thấy mình còn vi phạm điểm nào trong test hiện tại không? `[Chờ phản hồi]`
 
@@ -1216,13 +1285,13 @@ Không sao — hầu hết mọi người vi phạm ít nhất 2–3 điểm khi
 
 ---
 
-"Trước khi vào hoạt động — slide này cũng nhắc đến các chủ đề của **Buổi 2** mình sẽ cover tiếp:
+"Trước khi vào hoạt động — slide này cũng hé lộ một vài chủ đề lớn của **Buổi 2** mà chúng ta sẽ cùng nhau đi sâu vào:
 
-**4 Trụ Cột** — framework đánh giá một test là tài sản hay gánh nặng.
-**Mocking Rules** — khi nào mock đúng, khi nào mock là bẫy.
-**Test Doubles** — phân biệt Mock vs Stub vs Spy vs Fake một cách chính xác.
+**Mocking Rules** — khi nào mock là đúng đắn, và khi nào mock lại trở thành một cái bẫy.
+**Test Doubles** — phân biệt chính xác Mock, Stub, Spy và Fake, để dùng đúng loại vào đúng tình huống.
+**Refactoring & Anti-pattern** — cách tái cấu trúc những đoạn code khó test, và những sai lầm kinh điển cần tránh xa.
 
-Nếu có câu hỏi về nội dung hôm nay — giờ là lúc. Nếu không, mình chuyển sang phần thực hành ngay."
+Nếu có câu hỏi về nội dung hôm nay — bây giờ là lúc thích hợp để hỏi. Nếu không, mình sẽ chuyển sang một hoạt động nhỏ, trước khi khép lại buổi hôm nay bằng một framework rất quan trọng — framework mà các bạn sẽ dùng để đánh giá bất kỳ bài test nào từ giờ trở đi."
 
 `[Chờ 30 giây cho câu hỏi]`
 
@@ -1249,10 +1318,7 @@ Mình gọi nó là **Phòng Khám Test.** Mình sẽ chiếu lên 3 đoạn tes
 
 Và đây là điểm quan trọng: **tất cả 3 ca bệnh đều có assertion** — không ai viết test trống cả. Nhưng các bạn sẽ thấy rằng assertion có mặt không đồng nghĩa với assertion đúng — đây chính là **weak assertion** mình vừa đề cập ở Demo 1. Biểu hiện cụ thể là: `assertNotNull` thay vì check giá trị thực, `any()` matcher thay vì check nội dung đúng, hay verify interaction nhưng không verify data. Đây là những gì thực sự xảy ra trong project hàng ngày.
 
-Luật chơi:
-- Mỗi ca bệnh: **90 giây** đọc và gõ vào **chat Teams** tất cả vấn đề bạn thấy — gõ từng dòng riêng, không cần giải thích dài
-- **Mỗi vấn đề đúng = 1 điểm.** Vấn đề khó (đánh dấu ★) = **2 điểm**
-- Cuối game mình đếm điểm từ chat và công nhận người thắng
+Luật chơi rất đơn giản. Với mỗi ca bệnh, các bạn có đúng **90 giây** để đọc code và gõ vào **chat Teams** tất cả những vấn đề mình phát hiện được — gõ từng dòng riêng cho mỗi vấn đề, không cần giải thích dài dòng, cứ nêu thẳng ra là được. Mỗi vấn đề gõ đúng sẽ được tính **1 điểm**; riêng những vấn đề khó hơn, được đánh dấu bằng ★, sẽ được tính **2 điểm**. Sau khi hết giờ mỗi ca, mình sẽ đếm điểm ngay từ chat và công bố ai đang dẫn đầu.
 
 Sẵn sàng chưa? Bắt đầu Ca Bệnh số 1!"
 
@@ -1514,12 +1580,217 @@ verify(billing).charge(eq(42L), eq(BigDecimal.valueOf(200_000)));
 
 `[Xướng tên người/nhóm dẫn đầu]` — Xuất sắc! Bạn vừa chứng minh mình có mắt nhìn của một tech lead giỏi.
 
-Mình muốn các bạn để ý một điều: **hầu hết vấn đề trong 3 ca bệnh này đều TRÔNG ổn ở cái nhìn đầu tiên.** Test xanh. CI pass. Code review cũng khó phát hiện nếu không biết tìm gì. Đây chính xác là lý do tại sao Phần 2 quan trọng — chúng ta cần một **framework định lượng rõ ràng** để đánh giá bất kỳ test nào, thay vì chỉ dựa vào cảm tính."
+Mình muốn các bạn để ý một điều: **hầu hết vấn đề trong 3 ca bệnh này đều TRÔNG ổn ở cái nhìn đầu tiên.** Test xanh. CI pass. Code review cũng khó phát hiện nếu không biết tìm gì. Và đây chính xác là lý do tại sao phần tiếp theo của buổi hôm nay lại quan trọng đến vậy — chúng ta cần một **framework định lượng rõ ràng** để đánh giá bất kỳ test nào, thay vì chỉ dựa vào cảm tính như chúng ta vừa làm."
+
+---
+
+## CHƯƠNG 4 — BỐN TRỤ CỘT CỦA MỘT UNIT TEST TỐT
+### ⏰ 16:43 – 17:10 | 27 phút
+
+---
+
+`[Chuyển sang slide Chương 4. Header: "Bốn Trụ Cột Của Một Unit Test Tốt"]`
+
+### 4.1 — Từ trực giác đến framework (3 phút)
+
+---
+
+"Các bạn vừa làm một việc rất thú vị trong Phòng Khám Test: chỉ bằng cảm giác và kinh nghiệm, các bạn đã tự tay 'bắt bệnh' được hàng loạt vấn đề khá tinh vi — assertion yếu, verify nhầm vào stub, thiếu nhánh test, if lọt vào trong assert, Thread.sleep vô nghĩa. Toàn những thứ mà JaCoCo vẫn báo xanh, CI vẫn pass, và code review cũng rất dễ bỏ lọt nếu không biết chính xác cần tìm gì.
+
+`[Dừng một nhịp]`
+
+Nhưng mình muốn hỏi thật lòng các bạn một câu: nếu ngày mai sếp đưa cho bạn một file test hoàn toàn mới, một file bạn chưa từng thấy qua bao giờ — bạn có tự tin 'bắt bệnh' nhanh và chuẩn như vừa rồi không? Hay bạn sẽ phải đọc thật kỹ, thật lâu, và vẫn có nguy cơ bỏ sót điều gì đó?
+
+Đây chính xác là lý do chương này tồn tại. Những gì các bạn vừa làm bằng trực giác cách đây vài phút — bây giờ chúng ta sẽ cùng nhau **formalize nó thành một framework có bốn tiêu chí rõ ràng**, để từ giờ trở đi, với bất kỳ bài test nào bạn gặp, bạn cũng có thể chấm điểm nó một cách nhất quán, không còn phải phụ thuộc vào cảm tính hay kinh nghiệm cá nhân của riêng mình nữa.
+
+Bốn tiêu chí đó, tác giả Vladimir Khorikov gọi là **Bốn Trụ Cột của một Unit Test Tốt.** Và mình tin rằng đây là phần quan trọng nhất trong toàn bộ buổi học hôm nay — vì một khi đã nắm được nó, bạn sẽ không bao giờ còn nhìn một bài test theo cách cũ nữa."
+
+---
+
+### 4.2 — Trụ cột 1: Bảo vệ chống Regression (4 phút)
+
+---
+
+`[Chuyển sang slide: "Trụ Cột 1 — Bảo Vệ Chống Regression"]`
+
+---
+
+"Trụ cột đầu tiên trả lời một câu hỏi rất trực diện: **nếu ai đó vô tình đưa một bug vào code, bài test này có phát hiện ra được không?**
+
+Đây là tiêu chí cơ bản nhất, và cũng dễ hình dung nhất. Một test có khả năng bảo vệ tốt phải chạm được vào càng nhiều phần code thực sự quan trọng càng tốt — không phải chạm vào một getter, một setter, hay một constructor đơn giản, mà phải chạm được vào **domain logic**, nơi thực sự chứa các business rule của hệ thống.
+
+Và đây chính xác là lý do vì sao cái test `assertNotNull(decision.getInterestRate())` ở Ca Bệnh 1 lúc nãy lại nguy hiểm đến vậy. Nó **có chạm vào đúng đoạn code cần bảo vệ**, nhưng bản thân nó lại không thực sự **bảo vệ** được gì cả, vì assertion quá yếu để phát hiện ra khi lãi suất bị tính sai. Nói cách khác: chạm được vào code quan trọng chỉ là điều kiện cần — còn có assertion đủ chặt để phát hiện ra sai lệch mới là điều kiện đủ.
+
+`[Ví dụ minh họa]`
+
+Hãy so sánh hai bài test cùng kiểm tra một hàm tính thuế thu nhập cá nhân. Bài test thứ nhất gọi hàm, nhận kết quả, rồi chỉ viết `assertTrue(tax >= 0)` — có chạm đúng vào domain logic quan trọng, nhưng gần như không bảo vệ được gì, vì bất kỳ số dương nào cũng làm nó pass, kể cả khi công thức tính thuế bị sai hoàn toàn. Bài test thứ hai viết `assertEquals(4_750_000, tax)` với một bộ input cụ thể đã được tính tay từ trước — đây mới thực sự là một lá chắn bảo vệ regression, vì chỉ cần công thức tính sai đi một chút, con số 4.750.000 sẽ không còn khớp nữa, và test lập tức báo đỏ.
+
+Cả hai bài test đều 'chạm' vào đúng cùng một đoạn code. Nhưng chỉ một trong hai thực sự đang bảo vệ nó."
+
+---
+
+### 4.3 — Trụ cột 2: Khả năng chịu đựng Refactoring — vì sao đây là BINARY (6 phút)
+
+---
+
+`[Chuyển sang slide: "Trụ Cột 2 — Khả Năng Chịu Đựng Refactoring"]`
+
+---
+
+"Trụ cột thứ hai trả lời một câu hỏi hoàn toàn khác: **khi bạn refactor code — đổi tên method, tách class, gộp logic lại — mà hoàn toàn không đưa thêm bug nào vào, bài test này có giữ được màu xanh hay không?**
+
+Nghe qua thì có vẻ đây chỉ là một tiêu chí phụ, đi kèm cho đủ bộ. Nhưng mình muốn các bạn ghi nhớ thật kỹ điều sau đây: đây là **trụ cột duy nhất trong cả bốn trụ cột mang tính nhị phân — BINARY.**
+
+`[Nhấn mạnh]`
+
+Ba trụ cột còn lại — Regression, Speed, và Maintainability — đều có thể nhân nhượng một chút, đánh đổi một phần lấy phần khác. Nhưng Refactoring Resistance thì hoàn toàn không có điểm giữa. Một bài test **hoặc là** tách biệt hoàn toàn khỏi implementation detail bên trong — và vì vậy luôn giữ màu xanh sau mọi lần refactor đúng đắn — **hoặc là** nó bị gắn chặt vào cách code được viết ra sao, và sẽ vỡ bất cứ lúc nào bạn động đến nó, bất kể logic có đúng đắn đến mức nào.
+
+Và các bạn đã tận mắt chứng kiến điều này rồi đấy — chính là những gì đã xảy ra ở **Live Demo 2** trong Chương 2. Khi mình đổi tên `updateUserName` thành `saveUserName`, London test vỡ ngay lập tức dù chức năng vẫn đang chạy hoàn toàn chính xác. Đó không phải là một sự cố ngẫu nhiên — đó chính là bản chất của Structural Coupling, và bây giờ chúng ta đã có tên khoa học chính xác cho nó: **bài test đó có điểm Refactoring Resistance bằng KHÔNG.**
+
+`[Dừng một nhịp]`
+
+Và nếu các bạn nghĩ đây chỉ là chuyện lý thuyết, để mình kể thêm một câu chuyện có thật khác, cũng do chính tác giả Khorikov trải qua.
+
+Ông từng làm việc trong một dự án đã có vài năm tuổi đời. Trong khoảng thời gian đó, định hướng của công ty thay đổi khá nhiều lần, và mỗi lần thay đổi lại để lại một đống code cũ không ai dám động vào — vì một phần trong đó vẫn đang được các tính năng mới sử dụng nên không thể xóa hẳn, nhưng phần lớn đã trở thành 'tàn tích' của quá khứ.
+
+Dự án này có coverage khá cao. Nhưng mỗi lần có ai đó cố gắng refactor những đoạn code cũ ấy, hàng loạt test lại bắt đầu báo đỏ — không chỉ những test cũ, mà cả những test mới tinh cũng bị vạ lây theo. Một phần trong số đó là lỗi thật. Nhưng **phần lớn chỉ là false positive.**
+
+Ban đầu, các developer còn cố gắng xử lý từng cái một. Nhưng vì tỷ lệ báo động giả quá cao, dần dần họ hình thành một thói quen rất nguy hiểm: **hễ thấy test đỏ liên quan đến code cũ, cứ tắt nó đi, để tính sau.** Mọi thứ vẫn ổn — cho đến một ngày, một bug nghiêm trọng lọt được vào production. Và trớ trêu thay, **có một test đã phát hiện đúng chính xác bug đó** — nhưng chẳng còn ai để ý đến nó nữa, vì nó đã bị tắt cùng với hàng chục test khác từ trước đó rất lâu.
+
+Sau sự cố đó, cả team đưa ra một quyết định: không ai được đụng vào đống code cũ đó nữa. Vĩnh viễn.
+
+`[Nhấn mạnh]`
+
+Đây chính là hậu quả thực sự của việc một trụ cột — Refactoring Resistance — bị bỏ qua trong một thời gian dài. Không phải chỉ là một vài dòng test bị vỡ vô hại. Mà là **cả một team đánh mất hoàn toàn khả năng cải thiện code base của chính mình**, vì họ không còn phân biệt được đâu là cảnh báo thật, đâu là cảnh báo giả nữa.
+
+Đây cũng chính là lý do vì sao xuyên suốt cả cuốn sách, và xuyên suốt buổi học hôm nay, mình luôn nhấn đi nhấn lại việc ưu tiên Classical School. Không phải vì mình có cảm tình riêng với nó — mà vì nó bảo vệ đúng trụ cột duy nhất không có chỗ để thương lượng này."
+
+---
+
+### 4.4 — Trụ cột 3 & 4: Phản hồi nhanh và Khả năng bảo trì (4 phút)
+
+---
+
+`[Chuyển sang slide: "Trụ Cột 3 & 4"]`
+
+---
+
+"Hai trụ cột còn lại mang tính thực dụng hơn, nhưng điều đó không có nghĩa là chúng kém quan trọng.
+
+**Trụ cột 3 — Phản hồi nhanh (Fast Feedback):** một unit test đúng nghĩa phải chạy được trong vài mili-giây. Đây chính xác là **Đặc điểm số 2** mình đã nói với các bạn ở Chương 2 — và các bạn còn nhớ 'Góc phản biện' về Spring Boot chúng ta đã bàn không? Nếu bài test của bạn phải khởi động cả ApplicationContext mới chạy được, thì rất tiếc, nó không còn là một unit test nữa rồi.
+
+**Trụ cột 4 — Khả năng bảo trì (Maintainability):** một bài test tốt phải dễ đọc, dễ hiểu, và không đòi hỏi quá nhiều công sức để duy trì theo thời gian. Một bài test dài dòng, có phần Arrange rườm rà, hay nhồi nhét quá nhiều assertion không liên quan vào cùng một chỗ — tất cả những điều đó đều kéo điểm ở trụ cột này xuống thấp.
+
+`[Ví dụ minh họa cho cả hai trụ cột]`
+
+Về tốc độ, mình từng làm việc với một CI pipeline mất tới **45 phút** để chạy xong toàn bộ test suite — phần lớn thời gian đó là do hàng trăm test phải khởi động kết nối database thật. Hệ quả là gì? Developer không còn chạy test trước khi push code nữa. Họ push, rồi đi pha cà phê, rồi quay lại xem CI có báo đỏ hay không — và nếu đỏ, họ thường đã quên mất mình vừa sửa cái gì. Vòng phản hồi vốn chỉ nên mất vài giây đã bị kéo dài thành gần một tiếng đồng hồ.
+
+Về khả năng bảo trì, mình từng gặp một bài test có phần Arrange dài tới **120 dòng code** — thiết lập gần hai chục object lồng nhau chỉ để test đúng một hành vi đơn giản. Không một ai trong team muốn sửa file đó nữa, kể cả khi họ biết rõ nó đang test sai. Cuối cùng, bài test đó bị comment lại và bỏ quên hẳn, vì sửa nó tốn công hơn cả việc viết lại toàn bộ một tính năng mới từ đầu.
+
+`[Dừng một nhịp]`
+
+Và bây giờ, đến phần thú vị nhất: khi đặt cả bốn trụ cột này cạnh nhau và nhìn tổng thể, chúng ta sẽ phát hiện ra một sự thật khá phũ phàng."
+
+---
+
+### 4.5 — Ma trận đánh đổi: không có bài test hoàn hảo (4 phút)
+
+---
+
+`[Chuyển sang slide: "Ma Trận Đánh Đổi"]`
+
+---
+
+"Sự thật đó là: **không hề tồn tại một bài test nào đạt điểm tối đa ở cả bốn trụ cột cùng một lúc.** Ba trụ cột đầu tiên — Regression, Refactoring Resistance, và Speed — luôn kéo bạn về ba hướng khác nhau, và bạn buộc lòng phải đánh đổi giữa chúng.
+
+Hãy cùng nhìn qua ba trường hợp cực đoan sau để thấy thật rõ điều này.
+
+Một **End-to-End test**, chạy xuyên suốt qua toàn bộ hệ thống thật — bảo vệ regression cực tốt, chịu đựng refactor cực tốt, nhưng đổi lại, nó **chậm đến mức khó tưởng tượng.**
+
+Một **Trivial test**, chỉ đơn thuần test một getter đơn giản — chạy cực nhanh, không bao giờ vỡ khi refactor, nhưng **giá trị bảo vệ của nó gần như bằng không**, vì bản thân đoạn code đó vốn đã quá đơn giản để có chỗ cho một con bug nào ẩn náu.
+
+Và một **Brittle London test**, đúng như những gì chúng ta vừa chứng kiến ở Chương 2 — chạy nhanh, bảo vệ tốt trong ngắn hạn, nhưng lại **chịu đựng refactor cực kém**. Và đây mới chính là loại test nguy hiểm nhất trong ba loại, bởi vì nó trông có vẻ ổn thỏa cho đến tận khi bạn thực sự động tay vào refactor code.
+
+`[Hỏi nhanh trước khi tiết lộ vùng lý tưởng]`
+
+Trước khi mình nói tiếp, thử đoán xem: một bài test chỉ kiểm tra `getter` của một DTO đơn giản — object này chỉ có ba field, hoàn toàn không có logic gì cả — thuộc loại nào trong ba loại cực đoan vừa rồi? `[Chờ]` Chính xác — đó là **Trivial test**: chạy nhanh, không bao giờ vỡ, nhưng giá trị bảo vệ gần như bằng không.
+
+`[Nhấn mạnh]`
+
+Vậy đâu mới là vùng lý tưởng để nhắm đến? Chính là **unit test kiểm tra Domain Logic theo Classical School** — nơi vừa có khả năng bảo vệ tốt vì chạm đúng vào business rule quan trọng, vừa có khả năng chịu đựng refactor tốt vì hoàn toàn không biết gì về implementation detail bên trong. Đây không phải là cách né tránh việc đánh đổi — đây là cách chọn đúng chỗ để đánh đổi."
+
+---
+
+### 4.6 — Live Demo 5: Kiểm toán chính 2 file test đã dùng ở Chương 2 (6 phút)
+
+---
+
+`[Chuyển sang IDE — mở lại Demo2_LondonStyleTest.java và Demo2_ClassicalStyleTest.java, đúng hai file đã dùng ở Live Demo 2]`
+
+---
+
+"Bây giờ, thay vì chuẩn bị một demo hoàn toàn mới, mình muốn quay lại đúng hai file test các bạn đã thấy ở Chương 2. Nhưng lần này, chúng ta sẽ không chỉ đơn thuần nhìn xanh hay đỏ nữa — chúng ta sẽ **chấm điểm chúng một cách nghiêm túc theo đúng bốn trụ cột vừa học.**
+
+`[Chiếu bảng chấm điểm lên slide, điền trực tiếp trong lúc giảng]`
+
+Bắt đầu với **Trụ cột 1 — Regression**: cả hai file đều verify được đúng chức năng cập nhật tên người dùng. Điểm ngang nhau.
+
+Sang **Trụ cột 3 — Speed**: cả hai đều chạy trong vài mili-giây, không hề chạm vào database thật. Điểm cũng ngang nhau.
+
+Và **Trụ cột 4 — Maintainability**: cả hai đều ngắn gọn, dễ đọc, không có gì đáng phàn nàn. Điểm tiếp tục ngang nhau.
+
+`[Dừng, để học viên tự đoán trụ cột còn lại]`
+
+Vậy chỉ còn lại **Trụ cột 2 — Refactoring Resistance.** Các bạn còn nhớ điều gì đã xảy ra khi mình đổi tên `updateUserName` thành `saveUserName` không?
+
+`[Chờ học viên trả lời]`
+
+Chính xác — London test **vỡ tan tành**, còn Classical test thì **vẫn xanh như chưa hề có chuyện gì xảy ra**. Đây chính là trụ cột duy nhất phân định rạch ròi giữa hai bài test này. Ba trụ cột kia gần như hòa điểm tuyệt đối với nhau — nhưng chỉ cần **một trụ cột duy nhất rơi về không**, giá trị tổng thể của cả bài test cũng gần như kéo theo về không.
+
+Và đây chính là lý do Khorikov mô tả bốn trụ cột này bằng một phép **nhân**, chứ không phải một phép **cộng**. Bởi vì trong một phép nhân, chỉ cần một con số 0 xuất hiện ở bất kỳ đâu, kết quả cuối cùng cũng sẽ bị kéo về 0 theo."
+
+`[Chuyển về slide]`
+
+---
+
+### Tóm tắt Chương 4
+
+---
+
+`[Chuyển sang slide: "Tổng Kết Chương 4"]`
+
+---
+
+"Để khép lại chương này, mình muốn các bạn mang về nhà một thói quen mới: từ nay, mỗi khi nhìn vào một bài test — dù là của mình hay của đồng nghiệp — hãy tự hỏi đúng bốn câu. Nó có thực sự bảo vệ được regression hay không? Nó có sống sót qua một lần refactor đúng đắn hay không? Nó có chạy đủ nhanh để chạy liên tục trong suốt quá trình phát triển hay không? Và nó có đủ dễ đọc, dễ bảo trì hay không?
+
+Bốn câu hỏi đó chính là bốn trụ cột. Và bây giờ, các bạn đã có trong tay đúng thứ công cụ mình đã hứa từ đầu chương: một **framework định lượng rõ ràng**, thay vì chỉ dựa vào cảm tính, để đánh giá bất kỳ bài test nào các bạn sẽ gặp trong suốt sự nghiệp của mình."
+
+---
+
+**Q&A CHƯƠNG 4 — CÂU HỎI THƯỜNG GẶP**
+
+---
+
+**Q1: "Nếu một test bị điểm 0 ở Refactoring Resistance, có nên xóa nó đi ngay không?"**
+
+> *"Không nhất thiết phải xóa ngay lập tức — nhưng chắc chắn cần đưa vào danh sách ưu tiên để refactor sớm. Trước mắt, nó vẫn đang cung cấp một phần giá trị bảo vệ regression cho hệ thống. Nhưng về lâu dài, mỗi lần nó báo false positive, nó đang âm thầm bào mòn niềm tin của cả team vào test suite — và cái giá đó, xét trên đường dài, còn đắt hơn nhiều so với việc bỏ thời gian viết lại nó theo hướng Classical."*
+
+---
+
+**Q2: "Làm sao chấm điểm bốn trụ cột này một cách khách quan? Có công cụ nào đo tự động không?"**
+
+> *"Rất tiếc là không có công cụ nào đo tự động được cả bốn trụ cột cùng lúc — và đây chính là lý do vì sao chúng vẫn cần đến con mắt và kinh nghiệm của con người, giống hệt như những gì các bạn vừa luyện tập ở Phòng Khám Test. JaCoCo có thể cho bạn một gợi ý thô về Regression Protection thông qua coverage. Nhưng Refactoring Resistance, Speed, và Maintainability thì gần như luôn cần đến đánh giá thủ công. Tin vui là: một khi đã quen với bốn câu hỏi này, việc đánh giá sẽ nhanh dần lên theo thời gian, và gần như trở thành một phản xạ tự nhiên."*
+
+---
+
+**Q3: "Giữa bốn trụ cột, nếu team đang có ngân sách thời gian giới hạn, nên ưu tiên sửa cái nào trước?"**
+
+> *"Luôn luôn là Refactoring Resistance trước tiên. Lý do đã nói ở trên: đây là trụ cột mang tính nhị phân, và một khi nó rơi về 0, gần như toàn bộ giá trị của bài test cũng bị kéo về 0 theo. Hãy xử lý xong trụ cột này trước, rồi mới tính đến việc tối ưu tốc độ chạy hay rút gọn code để dễ bảo trì hơn."*
 
 ---
 
 ## TỔNG KẾT & Q&A NHANH
-### ⏰ 16:43 – 16:45 | 2 phút
+### ⏰ 17:10 – 17:12 | 2 phút
 
 ---
 
@@ -1527,25 +1798,27 @@ Mình muốn các bạn để ý một điều: **hầu hết vấn đề trong 
 
 ---
 
-"Chúng ta chỉ còn 2 phút — mình tóm gọn lại **3 điều cốt lõi** của buổi hôm nay:
+"Chúng ta chỉ còn 2 phút cuối cùng — hãy để mình tóm gọn lại **bốn điều cốt lõi** các bạn nên mang về nhà sau buổi học hôm nay.
 
-**① Tầm nhìn:** Test để **duy trì tốc độ phát triển bền vững** — không phải để đạt coverage number.
+**① Tầm nhìn:** chúng ta viết test để **duy trì tốc độ phát triển bền vững** của dự án — chứ không phải để chạy theo một con số coverage vô hồn.
 
-**② Trường phái:** Mặc định dùng **Classical School** — chỉ mock Shared và Out-of-Process dependency. Không bao giờ assert vào Stub.
+**② Trường phái:** mặc định hãy dùng **Classical School** — chỉ mock Shared Dependency và Out-of-Process Dependency, và không bao giờ assert vào một Stub.
 
-**③ Code sạch:** Act 1 dòng · Không có `if` trong Assert · Tên test là business fact có đầy đủ scenario + expected outcome.
+**③ Code sạch:** khối Act luôn chỉ một dòng, không bao giờ để `if` lọt vào trong Assert, và tên test phải là một business fact đầy đủ cả tình huống lẫn kết quả kỳ vọng.
+
+**④ Thước đo:** dùng **bốn trụ cột** — Regression, Refactoring Resistance, Speed, Maintainability — làm khung định lượng cho bất kỳ bài test nào, và luôn nhớ rằng Refactoring Resistance là trụ cột không thể thương lượng.
 
 `[Slide: Preview Buổi 2]`
 
-**Buổi 2** sẽ cho các bạn framework **4 trụ cột** để định lượng chất lượng bất kỳ test nào — bao gồm 3 ca bệnh vừa rồi — và học cách refactor codebase hướng tới test có giá trị thực sự.
+Sang **Buổi 2**, chúng ta sẽ đi tiếp vào những chủ đề còn lại: Test Pyramid và nguyên tắc Black-box testing sẽ là điểm khởi đầu, sau đó là quy tắc phân biệt Mock và Stub một cách chi tiết hơn, ba phong cách viết unit test, và cách tái cấu trúc những đoạn code khó test bằng Humble Object Pattern — cùng với những anti-pattern kinh điển cần tránh xa trong sự nghiệp làm unit testing của các bạn.
 
 `[Slide: Post-test]`
 
-Và trước khi kết thúc — mình sẽ gửi link **bài post-test** ngay trong chat. **15 câu trắc nghiệm, khoảng 15 phút** — toàn bộ câu hỏi đều bám vào nội dung vừa học hôm nay, không có gì ngoài phạm vi. Điểm đạt yêu cầu là **≥ 11/15.** Kết quả giúp cả mình lẫn các bạn biết chỗ nào cần ôn thêm trước Buổi 2.
+Và trước khi kết thúc — mình sẽ gửi link **bài post-test** ngay trong chat. **15 câu trắc nghiệm, khoảng 15 phút** — toàn bộ câu hỏi đều bám sát nội dung vừa học hôm nay, không có gì nằm ngoài phạm vi. Điểm đạt yêu cầu là **≥ 11/15.** Kết quả này sẽ giúp cả mình lẫn các bạn biết được chỗ nào cần ôn lại thêm trước khi bước vào Buổi 2.
 
-Hỏi nhanh: ai có câu hỏi 30 giây không? `[Chờ]`
+Hỏi nhanh: ai còn câu hỏi trong 30 giây cuối cùng không? `[Chờ]`
 
-Cảm ơn mọi người! Hẹn gặp lại ở Buổi 2!"
+Cảm ơn mọi người rất nhiều vì đã tập trung suốt gần ba tiếng đồng hồ hôm nay! Hẹn gặp lại các bạn ở Buổi 2!"
 
 ---
 
@@ -1576,6 +1849,7 @@ Cảm ơn mọi người! Hẹn gặp lại ở Buổi 2!"
 - **Demo 1 (JaCoCo):** Đảm bảo `pom.xml` đã có JaCoCo plugin, chạy `mvn test jacoco:report` và mở `target/site/jacoco/index.html` trên browser.
 - **Demo 2 (London vs Classical):** Chuẩn bị sẵn 2 branch trong git: `london-style` và `classical-style`. Switch branch để so sánh trực tiếp.
 - **Demo 3-4 (@ParameterizedTest):** Đảm bảo `junit-jupiter-params` đã có trong pom.xml.
+- **Demo 5 (Kiểm toán 4 Trụ Cột):** Không cần chuẩn bị file mới — dùng lại nguyên `Demo2_LondonStyleTest.java` và `Demo2_ClassicalStyleTest.java` đã mở ở Chương 2. Chỉ cần đảm bảo 2 file này vẫn còn ở trạng thái ban đầu (chưa rename `updateUserName`) trước khi bắt đầu Chương 4, để có thể lặp lại thao tác rename ngay tại chỗ nếu muốn nhấn mạnh lại visual, hoặc chỉ cần nhắc lại bằng lời nếu không muốn tốn thời gian code lại.
 
 ```xml
 <!-- pom.xml dependencies cần có -->
@@ -1592,6 +1866,15 @@ Cảm ơn mọi người! Hẹn gặp lại ở Buổi 2!"
     <scope>test</scope>
 </dependency>
 ```
+
+---
+
+### Việc cần làm tiếp theo (chưa xử lý trong bản này)
+
+1. **Rút gọn Chương 1–2 nếu cần về đúng ~168 phút** theo mục tiêu của `Detailed_Training_Plan_UnitTesting_v2.md`: Chương 1 còn ~30 phút (gọn phần kể chuyện Greenfield), Chương 2 còn ~38 phút. Bản hiện tại ưu tiên giữ trọn vẹn chất lượng sư phạm của 2 chương này nên chưa cắt — cần một đợt rà soát riêng nếu bắt buộc phải về đúng khung giờ đã duyệt.
+2. **Cập nhật `PostTest_Buoi1_UnitTesting_Phan1.md`** để bổ sung phần câu hỏi cho Chương 4 (4 Trụ Cột, ma trận đánh đổi) — hiện post-test mới chỉ bao phủ Chương 1–3.
+3. **Cập nhật `Unit-Testing-Phan-1.pptx`** để thêm slide cho Chương 4-lõi (4 trụ cột, ma trận đánh đổi, bảng chấm điểm Live Demo 5), lấy nội dung từ slide 3–8 hiện tại của `Unit-Testing-Phan-2.pptx`.
+4. **Cập nhật `Unit-Testing-Phan-2.pptx`** để xóa slide 3–8 đã chuyển đi, và đưa slide Test Pyramid + Black-box/White-box lên đầu deck làm cầu nối mở đầu Buổi 2.
 
 ---
 
